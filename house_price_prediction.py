@@ -4,8 +4,14 @@ import pandas as pd
 import pickle
 
 
-#Loading the saved model
-loaded_model = pickle.load(open('C:/Users\AYUSHMAN PANDEY\Desktop\HOUSE PRICE PREDICTION PROJECT\model_and_mapping.pkl', 'rb'))
+import os
+
+BASE_DIR = os.path.dirname(__file__)
+model_path = os.path.join(BASE_DIR, 'model_and_mapping.pkl')
+
+with open(model_path, 'rb') as f:
+    loaded_model = pickle.load(f)
+
 
 model = loaded_model["model"]
 location_mapping = loaded_model["location_mapping"]
